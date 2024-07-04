@@ -1,0 +1,25 @@
+function findIntegers(...arr){
+   const allNumbers = new Map();
+   
+   arr.forEach(array=>{
+      array.forEach(number=>{
+         if(allNumbers.has(number)){
+           allNumbers.set(number,allNumbers.get(number)+1);
+         }else{
+           allNumbers.set(number,1);
+         }
+      });
+   });
+   
+   const diffNumbers=[];
+   allNumbers.forEach((count,number)=>{
+     if(count===1){
+       diffNumbers.push(number);
+     }
+   });
+   
+   return diffNumbers;
+}
+
+const res = findIntegers([1,2,3], [2,3,4], [3,4,5]);
+console.log(res);
